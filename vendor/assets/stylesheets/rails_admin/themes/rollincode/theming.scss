@@ -104,45 +104,66 @@ body.rails_admin .sidebar-nav > .nav-stacked > li > a {
 }
 
 .btn-default {
-  color: $black !important;
+  color: $white !important;
+  background-color: #333333 !important;
+  &:hover {
+    background-color: #4e4e4e;
+  }
 }
 
-.btn-info {
-  background: $primary;
-  border-color: darken($primary, 10%);
+.btn {
+  background: #333;
+  &.btn-danger {
+    background-color: #d9534f;
+    &:hover {
+      background-color: darken(#d9534f, 10%);
+    }
+  }
+  &.btn-primary {
+    background-color: $primary;
+    &:hover {
+      background-color: darken($primary, 10%);
+    }
+  }
+  &.btn-info {
+    background: $primary;
+    border-color: darken($primary, 10%);
 
-  &:active,
-  &:focus,
-  &:hover,
-  &:target {
+    &:active,
+    &:focus,
+    &:hover,
+    &:target {
+      background-color: darken($primary, 10%);
+      border-color: darken($primary, 10%);
+      color: $secondary;
+    }
+  }
+
+  &.btn-info.disabled {
+    background: lighten($primary, 10%);
+    border-color: lighten($primary, 10%);
+  }
+
+  &.btn-primary {
     background: $secondary;
-    border-color: darken($secondary, 10%);
-    color: $primary;
+    border-color: $secondary;
+
+    &:active,
+    &:focus,
+    &:hover,
+    &:target {
+      background: darken($secondary, 20%);
+      border-color: darken($secondary, 20%);
+    }
+  }
+
+  &.btn-primary.disabled {
+    background: lighten($secondary, 20%);
+    border-color: lighten($secondary, 20%);
   }
 }
 
-.btn-info.disabled {
-  background: lighten($primary, 10%);
-  border-color: lighten($primary, 10%);
-}
 
-.btn-primary {
-  background: $secondary;
-  border-color: $secondary;
-
-  &:active,
-  &:focus,
-  &:hover,
-  &:target {
-    background: darken($secondary, 20%);
-    border-color: darken($secondary, 20%);
-  }
-}
-
-.btn-primary.disabled {
-  background: lighten($secondary, 20%);
-  border-color: lighten($secondary, 20%);
-}
 
 .alert {
   border-radius: 2px;
@@ -206,7 +227,7 @@ a {
 
 a.navbar-brand {
   line-height: 25px;
-  padding-top: 12px;
+  padding: 6px;
   white-space: nowrap;
   color: #fff !important;
   cursor: pointer !important;
@@ -250,6 +271,32 @@ a.navbar-brand {
   color: $secondary !important;
 }
 
+body.rails_admin .navbar .edit_user_root_link img {
+  border-radius: 100%;
+}
+.navbar-default {
+  .navbar-toggle {
+    background: #fff;
+  }
+  .navbar-nav > li {
+    &:not(.edit_user_root_link) > a {
+      text-transform: uppercase;
+    }
+    &:last-child {
+      &:hover {
+        background: #36abff !important;
+        a:hover > span {
+          background: #b84642;
+        }
+      }
+    }
+  }
+}
+span.label.label-danger {
+  font-weight: normal;
+  font-size: 12px;
+  text-transform: uppercase;
+}
 .root_links {
   .dashboard_root_link,
   .edit_user_root_link,
@@ -325,12 +372,12 @@ h1 {
 .table-striped td:not(.image_field) a {
   text-decoration: none !important;
   padding: 8px 10px;
-  border-radius: 2px;
+  border-radius: 8px;
   color: $secondary;
 
   &:hover {
     background: $secondary;
-    color: $primary;
+    color: $white;
   }
 }
 
